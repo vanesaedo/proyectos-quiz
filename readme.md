@@ -99,10 +99,9 @@ Si ayer "hiciste los deberes", tendrás un formulario que te será fácil valida
 
           <label for="sailor-field">Un marinero</label>
           <input id="sailor-field" type="radio" name="elminster" value="marinero">
-
-          <br>
-          <button type="submit">Comprobar datos</button>
         </fieldset>
+
+        <button type="submit">Comprobar datos</button>
     </form>
     ```
     Sabemos que sólo hay una respuesta posible, por lo que nuestro objeto de respuestas podría ser así:
