@@ -104,6 +104,7 @@ const respuestas = {
     'limon': 'amarillo',
     'frases': 'todas'
 }
+//Aquí estoy añadiendo el escuchador al formulario, desencadenándose a partir del evento submit.
 
 document.querySelector('form').addEventListener('submit',function (event){
     //Comprobando que me lee lo que el usuario marca
@@ -113,31 +114,55 @@ document.querySelector('form').addEventListener('submit',function (event){
        const qLimon = console.log(event.target.limon.value);
        const qFrases = console.log(event.target.frases.value);
 
+       
        let msj = '';
 
     //Pregunta 1
 
-        if (qLimon == ''){
-            //console.log('Selecciona algún color para el limón.');
-            msj += 'Selecciona algún color para el limón.'; 
+        if (qLimon == undefined){
+            console.log('Selecciona alguna opción\n'); 
+            msj += 'Pregunta 1:Selecciona alguna opción\n';
         }else if(qLimon == respuestas.limon){
-            //console.log('Correcto, el limón es amarillo. ¡Enhorabuena!');
-            msj += 'Correcto, el limón es amarillo. ¡Enhorabuena!'; 
+            console.log('Correcto. ¡Enhorabuena!\n');
+            msj += 'Correcto. ¡Enhorabuena!\n';
         }else{
-            //console.log('El limón no es de ese color. Inténtalo de nuevo.');}
-            msj += 'El limón no es de ese color. Inténtalo de nuevo.';
-        };
+            console.log('Incorrecto. El limón no es de ese color.\n');
+            msj += 'Incorrecto. El limón no es de ese color.\n'
+        }
 
     //Pregunta 2
-/*
-        if (qFrases == ''){
-            console.log('Selecciona algún color para el limón.'); 
-        }else if(qLimon == respuestas.limon){
-            console.log('Correcto, el limón es amarillo. ¡Enhorabuena!');
+
+        if (qFrases == undefined){
+            console.log('Selecciona alguna opción\n'); 
+            msj += 'Pregunta 2: Selecciona alguna opción\n';
+        }else if(qFrases == respuestas.frases){
+            console.log('Correcto. ¡Enhorabuena!\n');
+            msj += 'Correcto. ¡Enhorabuena!\n';
         }else{
-            console.log('El limón no es de ese color. Inténtalo de nuevo.');}
-            */
+            console.log('Incorrecto. Parece que necesitas descansar.\n');
+            msj += 'Correcto. ¡Enhorabuena!\n'
+        }
+
+        if (msj.length != 0)
+        alert(msj);
+        let p = document.createElement("pre");
+        let mensaje = document.createTextNode(msj);
+        p.style.color = "red";
+        p.style.fontSize = "12px";
+        p.appendChild(mensaje);
+
+        document.getElementById('errors').appendChild(p);
 });  
+/*
+modificar el color del input[type="radio"] dependiendo del resultado:
+
+Si una respuesta que obtenemos del formulario es igual la clave-valor a la que corresponde en el objeto de respuestas pintar de color verde el elemento marcado.
+
+En caso contrario al anterior, pintar de color rojo.
+*/
+
+
+//LÓGICAS DE VALIDACIÓN POR TIPO DE INPUT DE FORMULARIO
 
 //Todos los elementos (después se asignará cada expresión a una variable)
 //console.log(event.target.elements
@@ -157,3 +182,10 @@ document.querySelector('form').addEventListener('submit',function (event){
 
 //Select:
 //console.log(event.target.valor_de_name.value)
+
+//email:
+
+//if !email.endsWith(".com")&& !email.endsWith.es || !email.includes("@"){
+//    console.log('validation error' + email);
+//    msj += 'Validation error';
+//}
