@@ -95,97 +95,56 @@ document.getElementById('quizColors').innerHTML += quiz;
 }
 document.getElementById('quizColors').innerHTML += `<input type="submit" value="Enviar respuestas"></input>`
 
-//VALIDACIÓN
+//-------------------VALIDACIÓN-----------------------------
 
-//Añado un EventListener al formulario, que vigila cuándo se produce el evento sumbit(cuando pulsamos el botón enviar (submit). Y llamamos a la función event que contiene la info de lo que ha registrado nuestro form.
+
+let msj //declaro msj para rellenarla con el mensaje a mostrar en cada caso más adelante.
+
 
 const respuestas = {
     //clave = propiedad 'name', valor = 'value'
     'limon': 'amarillo',
     'frases': 'todas'
 }
-//Aquí estoy añadiendo el escuchador al formulario, desencadenándose a partir del evento submit.
 
+//Creo párrafo donde mostrar los errores
+let p = document.getElementById('errors')
+p.style.color = "red";
+p.style.fontSize = "16px";
+
+//Añado listener y llamo al objeto event para leer las respuestas del usuario
 document.querySelector('form').addEventListener('submit',function (event){
-    //Comprobando que me lee lo que el usuario marca
+   
        //Paralizo el envío del formulario
        event.preventDefault();
-       //console.log(event.target.valor_de_name.valor_de_value)
-       const qLimon = console.log(event.target.limon.value);
-       const qFrases = console.log(event.target.frases.value);
 
-       
-       let msj = '';
+       //Asigno el valor de las respuestas del usuario a su respectiva variable
+       let qLimon = event.target.limon.value;
+       let qFrases = event.target.frases.value
 
-    //Pregunta 1
+       msj = '';//incio msj como stringnvacío
 
-        if (qLimon == undefined){
-            console.log('Selecciona alguna opción\n'); 
-            msj += 'Pregunta 1:Selecciona alguna opción\n';
+        //Pregunta 1: condiciones y mensajes de error
+
+        if (qLimon == ''){
+            msj += 'Pregunta 1:Selecciona alguna opción.<br>';
         }else if(qLimon == respuestas.limon){
-            console.log('Correcto. ¡Enhorabuena!\n');
-            msj += 'Correcto. ¡Enhorabuena!\n';
+            msj += 'Correcto. ¡Enhorabuena!<br>';
         }else{
-            console.log('Incorrecto. El limón no es de ese color.\n');
-            msj += 'Incorrecto. El limón no es de ese color.\n'
+            msj += 'Incorrecto. El limón no es de ese color.<br>'
         }
 
-    //Pregunta 2
+    //Pregunta 2: condiciones y mensajes de error
 
-        if (qFrases == undefined){
-            console.log('Selecciona alguna opción\n'); 
-            msj += 'Pregunta 2: Selecciona alguna opción\n';
+        if (qFrases == ''){
+            msj += 'Pregunta 2: Selecciona alguna opción.<br>';
         }else if(qFrases == respuestas.frases){
-            console.log('Correcto. ¡Enhorabuena!\n');
-            msj += 'Correcto. ¡Enhorabuena!\n';
+            msj += 'Correcto. ¡Enhorabuena!<br>';
         }else{
-            console.log('Incorrecto. Parece que necesitas descansar.\n');
-            msj += 'Correcto. ¡Enhorabuena!\n'
+            msj += 'Incorrecto. Parece que necesitas descansar.<br>';
         }
-
-        if (msj.length != 0)
-        alert(msj);
-        let p = document.createElement("pre");
-        let mensaje = document.createTextNode(msj);
-        p.style.color = "red";
-        p.style.fontSize = "12px";
-        p.appendChild(mensaje);
-
-        document.getElementById('errors').appendChild(p);
+        
+        p.innerHTML = msj
+        
+        msj = '';
 });  
-/*
-modificar el color del input[type="radio"] dependiendo del resultado:
-
-Si una respuesta que obtenemos del formulario es igual la clave-valor a la que corresponde en el objeto de respuestas pintar de color verde el elemento marcado.
-
-En caso contrario al anterior, pintar de color rojo.
-*/
-
-
-//LÓGICAS DE VALIDACIÓN POR TIPO DE INPUT DE FORMULARIO
-
-//Todos los elementos (después se asignará cada expresión a una variable)
-//console.log(event.target.elements
-
-//Radio: 
-//console.log(event.target.valor_de_name.value)
-
-//CheckBox:
-//console.log(event.target.valor_de_name.checked) - Booleano
-//Lógica de validación
-//if (!accept || !span){console.log('Por favor, acepta condiciones y envío de publicidad.')}
-
-//Texto: 
-//console.log(event.target.valor_de_name.value)
-//lógica de validación
-//if (value_de_name.length > 30){console.log('nombre fuera de tamaño: ha de ser menor de 30)}
-
-//Select:
-//console.log(event.target.valor_de_name.value)
-
-//email:
-
-//if !email.endsWith(".com")&& !email.endsWith.es || !email.includes("@"){
-//    console.log('validation error' + email);
-//    msj += 'Validation error';
-//}
