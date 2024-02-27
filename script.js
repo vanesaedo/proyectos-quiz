@@ -170,6 +170,7 @@ for (let i=0; i < quizObj.length; i++){
 let quiz = `
 <fieldset>
 <h1 class="pregunta">"${quizObj[i].legend}" </h1>
+<article>
 `
 //recorre el objeto answer que contiene las posibles respuestas
 for (let j = 0; j < quizObj[i].answerAtts.length; j++) {
@@ -184,7 +185,7 @@ for (let j = 0; j < quizObj[i].answerAtts.length; j++) {
        
 }
 
-quiz += `</fieldset>`
+quiz += `<article></fieldset>`
 
 document.getElementById('quizColors').innerHTML += quiz;
 
