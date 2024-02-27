@@ -12,62 +12,155 @@ let quizObj = [
             {
                 'inpVal': 'azul',
                 'labText': 'Azul',
-                'inpName': 'limon',
+                'inpName': 'q1',
                 'inpFor_Id':'azul'
         
             },
             {
                 'inpVal': 'verde',
                 'labText': 'Verde',
-                'inpName': 'limon',
+                'inpName': 'q1',
                 'inpFor_Id':'verde'
             },
             {
                 'inpVal': 'rojo',
                 'labText': 'Rojo',
-                'inpName': 'limon',
+                'inpName': 'q1',
                 'inpFor_Id':'rojo'
             },
             {
                 'inpVal': 'amarillo',
                 'labText': 'Amarillo',
-                'inpName': 'limon',
+                'inpName': 'q1',
                 'inpFor_Id':'amarillo'
 
             }
         ]
     },
     {
-        //1st question of the quiz object. [0] Question statement.[1]<label> and <input> tags attributes.
+        //2nd question of the quiz object. [0] Question statement.[1]<label> and <input> tags attributes.
 
-        'legend': '¿Cuál de estas expresiones te resulta familiar?',
+        'legend': '¿De qué color es una sandía?',
         'answerAtts': [
             {
                 'inpVal': 'haceCosas',
                 'labText': 'Esto hace cosas',
-                'inpName': 'frases',
+                'inpName': 'q2',
                 'inpFor_Id':'haceCosas'
             },
             {
                 'inpVal': 'probado',
                 'labText': '¿Pero lo has probado?',
-                'inpName': 'frases',
+                'inpName': 'q2',
                 'inpFor_Id':'hasProbado'
             },
             {
                 'inpVal': 'monoculo',
                 'labText': 'Es hora de quitarse el monóculo',
-                'inpName': 'frases',
+                'inpName': 'q2',
                 'inpFor_Id':'quitaMonoculo'
             },
             {
                 'inpVal': 'todas',
                 'labText': 'Todas',
-                'inpName': 'frases',
+                'inpName': 'q2',
                 'inpFor_Id':'todas'
             }
         ]
-    }
+    },
+    {
+         //3rd question of the quiz object. [0] Question statement.[1]<label> and <input> tags attributes.
+
+         'legend': '¿Cómo se llama la hija de Thor?',
+         'answerAtts': [
+             {
+                 'inpVal': 'monica',
+                 'labText': 'Mónica',
+                 'inpName': 'q3',
+                 'inpFor_Id':'monica'
+             },
+             {
+                 'inpVal': 'torita',
+                 'labText': 'Torita',
+                 'inpName': 'q3',
+                 'inpFor_Id':'torita'
+             },
+             {
+                 'inpVal': 'hipatia',
+                 'labText': 'Hipatia',
+                 'inpName': 'q3',
+                 'inpFor_Id':'hipatia'
+             },
+             {
+                 'inpVal': 'torrija',
+                 'labText': 'Torrija',
+                 'inpName': 'q3',
+                 'inpFor_Id':'torrija'
+             }
+         ]
+    },
+    {
+        //4rd question of the quiz object. [0] Question statement.[1]<label> and <input> tags attributes.
+
+        'legend': '¿Qué animal vive y se reproduce sólo en el polo Sur?',
+        'answerAtts': [
+            {
+                'inpVal': 'mofeta',
+                'labText': 'Mofeta',
+                'inpName': 'q4',
+                'inpFor_Id':'mofeta'
+            },
+            {
+                'inpVal': 'caracol',
+                'labText': 'Caracol',
+                'inpName': 'q4',
+                'inpFor_Id':'caracol'
+            },
+            {
+                'inpVal': 'pinguino',
+                'labText': 'Pingüino',
+                'inpName': 'q4',
+                'inpFor_Id':'pinguino'
+            },
+            {
+                'inpVal': 'lobo',
+                'labText': 'Lobo',
+                'inpName': 'q2',
+                'inpFor_Id':'lobo'
+            }
+        ]
+   },
+   {
+    //5th question of the quiz object. [0] Question statement.[1]<label> and <input> tags attributes.
+
+    'legend': '¿En qué estación del año caen las hojas?',
+    'answerAtts': [
+        {
+            'inpVal': 'verano',
+            'labText': 'Verano',
+            'inpName': 'q5',
+            'inpFor_Id':'verano'
+        },
+        {
+            'inpVal': 'primavera',
+            'labText': 'Primavera',
+            'inpName': 'q5',
+            'inpFor_Id':'primavera'
+        },
+        {
+            'inpVal': 'otoño',
+            'labText': 'Otoño',
+            'inpName': 'q5',
+            'inpFor_Id':'otoño'
+        },
+        {
+            'inpVal': 'invierno',
+            'labText': 'Invierno',
+            'inpName': 'q5',
+            'inpFor_Id':'invierno'
+        }
+    ]
+}
 ]
 
 
@@ -75,17 +168,20 @@ let quizObj = [
 for (let i=0; i < quizObj.length; i++){
 
 let quiz = `
-        <fieldset>
-        <legend><h2>${quizObj[i].legend}</h2></legend>`
-
+<fieldset>
+<h1 class="pregunta">"${quizObj[i].legend}" </h1>
+`
+//recorre el objeto answer que contiene las posibles respuestas
 for (let j = 0; j < quizObj[i].answerAtts.length; j++) {
 
     let answer = `
-        
-            <label for="${quizObj[i].answerAtts[j].inpFor_Id}">"${quizObj[i].answerAtts[j].labText}" </label>
-            <input id="${quizObj[i].answerAtts[j].inpFor_Id}" name="${quizObj[i].answerAtts[j].inpName}" value="${quizObj[i].answerAtts[j].inpVal}" type="radio" />
-        `;
-    quiz += answer;
+        <div class="answer">
+        <label class="respuestaRadio="${quizObj[i].answerAtts[j].inpFor_Id}">${quizObj[i].answerAtts[j].labText}</label>
+        <input id="${quizObj[i].answerAtts[j].inpFor_Id}" name="${quizObj[i].answerAtts[j].inpName}" value="${quizObj[i].answerAtts[j].inpVal}" type="radio"/>
+        </div>
+        `
+        quiz += answer;
+       
 }
 
 quiz += `</fieldset>`
@@ -103,8 +199,11 @@ let msj //declaro msj para rellenarla con el mensaje a mostrar en cada caso más
 
 const respuestas = {
     //clave = propiedad 'name', valor = 'value'
-    'limon': 'amarillo',
-    'frases': 'todas'
+    'answ1': 'amarillo',
+    'answ2': 'todas',
+    'answ3':'torrija',
+    'answ4':'pinguino',
+    'answ5':'otoño'
 }
 
 //Creo párrafo donde mostrar los errores
@@ -119,31 +218,49 @@ document.querySelector('form').addEventListener('submit',function (event){
        event.preventDefault();
 
        //Asigno el valor de las respuestas del usuario a su respectiva variable
-       let qLimon = event.target.limon.value;
-       let qFrases = event.target.frases.value
+       let userAnsw1 = event.target.q1.value;
+       let userAnsw2 = event.target.q2.value;
+       let userAnsw3 = event.target.q3.value;
+       let userAnsw4 = event.target.q4.value;
 
-       msj = '';//incio msj como stringnvacío
+       msj = '';//incio msj como stringn vacío
 
         //Pregunta 1: condiciones y mensajes de error
 
-        if (qLimon == ''){
-            msj += 'Pregunta 1:Selecciona alguna opción.<br>';
-        }else if(qLimon == respuestas.limon){
-            msj += 'Correcto. ¡Enhorabuena!<br>';
+        if (userAnsw1 == ''){
+            msj += 'Q1:Selecciona alguna opción.<br>';
+        }else if(userAnsw1 == respuestas.answ1){
+            msj += 'Q1: Correcto. ¡Enhorabuena!<br>';
         }else{
-            msj += 'Incorrecto. El limón no es de ese color.<br>'
+            msj += 'Q1: Incorrecto. El limón no es de ese color.<br>'
         }
 
     //Pregunta 2: condiciones y mensajes de error
 
-        if (qFrases == ''){
-            msj += 'Pregunta 2: Selecciona alguna opción.<br>';
-        }else if(qFrases == respuestas.frases){
-            msj += 'Correcto. ¡Enhorabuena!<br>';
+        if (userAnsw2 == ''){
+            msj += 'Q2: Selecciona alguna opción.<br>';
+        }else if(userAnsw2 == respuestas.answ2){
+            msj += 'Q2: Correcto. ¡Enhorabuena!<br>';
         }else{
-            msj += 'Incorrecto. Parece que necesitas descansar.<br>';
+            msj += 'Q2: Incorrecto. Parece que necesitas descansar.<br>';
         }
-        
+    //Pregunta 3: condiciones y mensajes de error
+        if (userAnsw3 == ''){
+            msj += 'Q3: Selecciona alguna opción.<br>';
+        }else if(userAnsw3 == respuestas.answ3){
+            msj += 'Q3: Correcto. ¡Enhorabuena!<br>';
+        }else{
+            msj += 'Q3: Incorrecto. Parece que necesitas descansar.<br>';
+        }
+
+        //Pregunta 4: condiciones y mensajes de error
+        if (userAnsw4 == ''){
+            msj += 'Q4: Selecciona alguna opción.<br>';
+        }else if(userAnsw4 == respuestas.answ4){
+            msj += 'Q4: Correcto. ¡Enhorabuena!<br>';
+        }else{
+            msj += 'Q4: Incorrecto. Parece que necesitas descansar.<br>';
+        }
         p.innerHTML = msj
         
         msj = '';
