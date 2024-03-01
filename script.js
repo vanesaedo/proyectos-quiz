@@ -125,7 +125,7 @@ let quizObj = [
             {
                 'inpVal': 'lobo',
                 'labText': 'Lobo',
-                'inpName': 'q2',
+                'inpName': 'q4',
                 'inpFor_Id':'lobo'
             }
         ]
@@ -258,7 +258,7 @@ document.querySelector('form').addEventListener('submit',function (event){
         }else{
             msj += 'Q4: Incorrecto. Parece que necesitas descansar.\n';
         }
-       // p.innerHTML = msj;
+       p.innerHTML = msj;
         alert(msj);
         
         msj = '';

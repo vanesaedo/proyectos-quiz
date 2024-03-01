@@ -23,16 +23,13 @@ fieldset {
 article {
     display: flex;
     flex-direction: column;
- 
-
 }
 
 div {
-    height: 20%;
+   
     padding:40px;
     text-align: center;
 }
-
 
 h1 {
     text-align: center;
@@ -64,10 +61,7 @@ div:nth-child(4) {
 
 }
 
-.answer {
 
-    padding: 60px;
-}
 
 .answerVerde {
 
