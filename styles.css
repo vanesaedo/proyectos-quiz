@@ -1,21 +1,57 @@
 * {
-
- font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
-}
-#mainIndex{
-display:flex;
-flex-direction: column;
-align-content: center;
-justify-content: center;
-
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-fieldset{
+.quizColors {
+    display: flex;
+    flex-direction: column;
+
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
+   
 }
+
+article {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+
+}
+span{
+    font-size: 12px;
+    height: 20%;
+}
+div {
+    height: 20%;
+    padding: 40px;
+
+}
+
+div:nth-child(1) {
+    background: rgb(36, 243, 208);
+}
+
+div:nth-child(2) {
+    background: rgb(4, 137, 203);
+}
+
+div:nth-child(3) {
+    background: rgb(234, 60, 104);
+}
+
+div:nth-child(4) {
+    background: rgb(234, 153, 60);
+}
+
 
 #comenzar {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 
@@ -23,16 +59,19 @@ fieldset{
 
 .answer {
 
-    background-color: green;
-    padding:20px;
-    margin 40px;
+    padding: 60px;
 }
 
-    article {
-    display:flex;
-    flex-direction: column;
-    height:80%;
-    padding:20px;
-    margin: 20px auto;
-    }  
+.answerVerde {
 
+    background-color: green;
+}
+
+
+
+
+
+
+@media screen and(max-width: 768px) {}
+
+@media screen and(max-width: 600px) {}

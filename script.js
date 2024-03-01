@@ -40,7 +40,7 @@ let quizObj = [
     {
         //2nd question of the quiz object. [0] Question statement.[1]<label> and <input> tags attributes.
 
-        'legend': '¿De qué color es una sandía?',
+        'legend': '¿Cuál de estas expresiones  te resulta familiar?',
         'answerAtts': [
             {
                 'inpVal': 'haceCosas',
@@ -169,16 +169,18 @@ for (let i=0; i < quizObj.length; i++){
 
 let quiz = `
 <fieldset>
+<span>
 <h1 class="pregunta">"${quizObj[i].legend}" </h1>
-<article>
+</span>
+<article>   
 `
 //recorre el objeto answer que contiene las posibles respuestas
 for (let j = 0; j < quizObj[i].answerAtts.length; j++) {
 
     let answer = `
-        <div class="answer">
+        <div>
         <label class="respuestaRadio="${quizObj[i].answerAtts[j].inpFor_Id}">${quizObj[i].answerAtts[j].labText}</label>
-        <input id="${quizObj[i].answerAtts[j].inpFor_Id}" name="${quizObj[i].answerAtts[j].inpName}" value="${quizObj[i].answerAtts[j].inpVal}" type="radio"/>
+        <input id="${quizObj[i].answerAtts[j].inpFor_Id}" name="${quizObj[i].answerAtts[j].inpName}" value="${quizObj[i].answerAtts[j].inpVal}" type="radio" required/>
         </div>
         `
         quiz += answer;
@@ -211,6 +213,7 @@ const respuestas = {
 let p = document.getElementById('errors')
 p.style.color = "red";
 p.style.fontSize = "16px";
+p.style.display = "block";
 
 //Añado listener y llamo al objeto event para leer las respuestas del usuario
 document.querySelector('form').addEventListener('submit',function (event){
@@ -224,45 +227,39 @@ document.querySelector('form').addEventListener('submit',function (event){
        let userAnsw3 = event.target.q3.value;
        let userAnsw4 = event.target.q4.value;
 
-       msj = '';//incio msj como stringn vacío
+       msj = '';//incio msj como string vacío
 
-        //Pregunta 1: condiciones y mensajes de error
+    //Possible answer 1: Output errors
 
-        if (userAnsw1 == ''){
-            msj += 'Q1:Selecciona alguna opción.<br>';
-        }else if(userAnsw1 == respuestas.answ1){
+       if(userAnsw1 == respuestas.answ1){
             msj += 'Q1: Correcto. ¡Enhorabuena!<br>';
         }else{
-            msj += 'Q1: Incorrecto. El limón no es de ese color.<br>'
+            msj += 'Q1: Incorrecto. El limón no es de ese color.'
         }
 
-    //Pregunta 2: condiciones y mensajes de error
+    //Possible answer 2:  Output errors
 
-        if (userAnsw2 == ''){
-            msj += 'Q2: Selecciona alguna opción.<br>';
-        }else if(userAnsw2 == respuestas.answ2){
+        if(userAnsw2 == respuestas.answ2){
             msj += 'Q2: Correcto. ¡Enhorabuena!<br>';
+        
         }else{
             msj += 'Q2: Incorrecto. Parece que necesitas descansar.<br>';
         }
-    //Pregunta 3: condiciones y mensajes de error
-        if (userAnsw3 == ''){
-            msj += 'Q3: Selecciona alguna opción.<br>';
-        }else if(userAnsw3 == respuestas.answ3){
+    //Possible answer 3: Output errors
+        if(userAnsw3 == respuestas.answ3){
             msj += 'Q3: Correcto. ¡Enhorabuena!<br>';
         }else{
             msj += 'Q3: Incorrecto. Parece que necesitas descansar.<br>';
         }
 
-        //Pregunta 4: condiciones y mensajes de error
-        if (userAnsw4 == ''){
-            msj += 'Q4: Selecciona alguna opción.<br>';
-        }else if(userAnsw4 == respuestas.answ4){
+    //Possible answer 4: Output errors
+        if(userAnsw4 == respuestas.answ4){
             msj += 'Q4: Correcto. ¡Enhorabuena!<br>';
         }else{
             msj += 'Q4: Incorrecto. Parece que necesitas descansar.<br>';
         }
-        p.innerHTML = msj
+        p.innerHTML = msj;
+        alert(msj);
         
         msj = '';
 });  
