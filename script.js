@@ -179,7 +179,7 @@ for (let j = 0; j < quizObj[i].answerAtts.length; j++) {
 
     let answer = `
         <div>
-        <label class="respuestaRadio="${quizObj[i].answerAtts[j].inpFor_Id}">${quizObj[i].answerAtts[j].labText}</label>
+        <label for="${quizObj[i].answerAtts[j].inpFor_Id}">${quizObj[i].answerAtts[j].labText}</label>
         <input id="${quizObj[i].answerAtts[j].inpFor_Id}" name="${quizObj[i].answerAtts[j].inpName}" value="${quizObj[i].answerAtts[j].inpVal}" type="radio" required/>
         </div>
         `
@@ -213,7 +213,7 @@ const respuestas = {
 let p = document.getElementById('errors')
 p.style.color = "red";
 p.style.fontSize = "16px";
-p.style.display = "block";
+
 
 //Añado listener y llamo al objeto event para leer las respuestas del usuario
 document.querySelector('form').addEventListener('submit',function (event){
@@ -232,34 +232,35 @@ document.querySelector('form').addEventListener('submit',function (event){
     //Possible answer 1: Output errors
 
        if(userAnsw1 == respuestas.answ1){
-            msj += 'Q1: Correcto. ¡Enhorabuena!<br>';
+            msj += 'Q1: Correcto. ¡Enhorabuena!\n';
         }else{
-            msj += 'Q1: Incorrecto. El limón no es de ese color.'
+            msj += 'Q1: Incorrecto. El limón no es de ese color.\n'
         }
 
     //Possible answer 2:  Output errors
 
         if(userAnsw2 == respuestas.answ2){
-            msj += 'Q2: Correcto. ¡Enhorabuena!<br>';
+            msj += 'Q2: Correcto. ¡Enhorabuena!\n';
         
         }else{
-            msj += 'Q2: Incorrecto. Parece que necesitas descansar.<br>';
+            msj += 'Q2: Incorrecto. Parece que necesitas descansar.\n';
         }
     //Possible answer 3: Output errors
         if(userAnsw3 == respuestas.answ3){
-            msj += 'Q3: Correcto. ¡Enhorabuena!<br>';
+            msj += 'Q3: Correcto. ¡Enhorabuena!\n';
         }else{
-            msj += 'Q3: Incorrecto. Parece que necesitas descansar.<br>';
+            msj += 'Q3: Incorrecto. Parece que necesitas descansar.\n';
         }
 
     //Possible answer 4: Output errors
         if(userAnsw4 == respuestas.answ4){
-            msj += 'Q4: Correcto. ¡Enhorabuena!<br>';
+            msj += 'Q4: Correcto. ¡Enhorabuena!\n';
         }else{
-            msj += 'Q4: Incorrecto. Parece que necesitas descansar.<br>';
+            msj += 'Q4: Incorrecto. Parece que necesitas descansar.\n';
         }
-        p.innerHTML = msj;
+       // p.innerHTML = msj;
         alert(msj);
         
         msj = '';
+  
 });  

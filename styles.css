@@ -2,6 +2,8 @@
     margin: 0px;
     padding: 0px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border
+   
 }
 
 .quizColors {
@@ -14,40 +16,45 @@ fieldset {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-color: antiquewhite;
    
 }
 
 article {
     display: flex;
     flex-direction: column;
-    height: 80%;
+ 
 
 }
-span{
-    font-size: 12px;
-    height: 20%;
-}
+
 div {
     height: 20%;
-    padding: 40px;
+    padding:40px;
+    text-align: center;
+}
 
+
+h1 {
+    text-align: center;
+    padding: 10%;
 }
 
 div:nth-child(1) {
-    background: rgb(36, 243, 208);
+    background: rgb(132, 212, 199);
 }
 
 div:nth-child(2) {
-    background: rgb(4, 137, 203);
+    background: rgb(124, 198, 208);
 }
 
 div:nth-child(3) {
-    background: rgb(234, 60, 104);
+    background: rgb(246, 99, 136);
 }
 
 div:nth-child(4) {
-    background: rgb(234, 153, 60);
+    background: rgb(232, 170, 99);
 }
+
 
 
 #comenzar {
